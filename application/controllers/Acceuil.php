@@ -7,6 +7,10 @@ class Acceuil extends CI_Controller {
 	{
 		parent::__construct();
 
+		if(!isset($this->session->connected)){
+			redirect('sign/index');
+		}
+		
 		$this->load->model('Crud');
 
 		$this->load->view('layout/head.php');	

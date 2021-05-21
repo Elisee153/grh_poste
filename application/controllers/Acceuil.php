@@ -10,7 +10,7 @@ class Acceuil extends CI_Controller {
 		if(!isset($this->session->connected)){
 			redirect('sign/index');
 		}
-		
+
 		$this->load->model('Crud');
 
 		$this->load->view('layout/head.php');	
@@ -23,7 +23,7 @@ class Acceuil extends CI_Controller {
 		$d['p_o'] = $this->Crud->get_data_desc('poste',['etat'=>1]);
 		$d['p_v'] = $this->Crud->get_data_desc('poste',['etat'=>0]);
 		$d['poste'] = $this->Crud->get_data_desc('poste',[],5);
-
+		$d['all_post'] = $this->Crud->get_data_desc('poste',[]);
 		$this->load->view('pages/acceuil',$d);
 		$this->load->view('layout/footer.php');
 		$this->load->view('layout/js.php');
@@ -66,6 +66,44 @@ class Acceuil extends CI_Controller {
 
 	public function filter()
 	{
-		return 0;
+		if(count($_POST) <= 0)
+		{
+			$d['poste'] = $this->Crud->get_data_desc('poste',[]);
+			$this->load->view('pages/filter',$d);
+			$this->load->view('layout/footer.php');
+			$this->load->view('layout/js.php');
+		}else{
+			echo 'else';die();
+		}		
+	}
+
+	public function cv()
+	{
+		if(count($_POST) <= 0)
+		{
+			$d['poste'] = $this->Crud->get_data_desc('poste',[]);
+			$this->load->view('pages/cv',$d);
+			$this->load->view('layout/footer.php');
+			$this->load->view('layout/js.php');
+		}else{
+			if ($_FILES['cv']['name'] != null) 
+			{
+				$p_name = $this->Crud->get_data('poste',['id'=>$this->input->post('poste')])[0]->name;
+
+				$fichier = $p_name.'-'.$_FILES['cv']['name'];
+
+				move_uploaded_file($_FILES['cv']['tmp_name'], './assets/cv/'.$fichier);
+			
+				$d = [
+					'file' => $fichier,
+					'poste_id' => $this->input->post('poste')
+				];
+
+				$this->Crud->add_data('cv',$d);
+
+				$this->session->set_flashdata(['cv_added'=>true]);
+				redirect('acceuil/index');
+		   }	
+		}	
 	}
 }

@@ -15,8 +15,12 @@
 
             <li><a href="<?=site_url('acceuil/all_poste')?>"><i class="zmdi zmdi-format-underlined"></i> Postes</a></li>
 
-            <li class="navigation__sub">
+            <li>
                 <a href="<?=site_url('acceuil/filter')?>"><i class="zmdi zmdi-view-list"></i> Filtre</a>
+            </li>
+
+            <li>
+                <a href="<?=site_url('acceuil/cv')?>"><i class="zmdi zmdi-view-list"></i> Cv</a>
             </li>
         </ul>
     </div>

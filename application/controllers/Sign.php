@@ -54,8 +54,8 @@ class Sign extends CI_Controller
     public function signUp()
     {
         if (count($_POST) <= 0) {
-            $this->load->view('admin/signup');
-            $this->load->view('layout/admin/js');        
+            $this->load->view('pages/signup');
+            $this->load->view('layout/js');        
         }
         else{
             $data = array(
@@ -65,9 +65,9 @@ class Sign extends CI_Controller
                 "mdp" => $this->input->post("mdp"),
             );
             //add user
-            $this->Crud->add_date('user',$data);
+            $this->Crud->add_data('user',$data);
             $this->session->set_flashdata(array('account_created'=>true));
-            redirect('admin/index');
+            redirect('sign/index');
         }
     }
 
@@ -77,24 +77,24 @@ class Sign extends CI_Controller
          $this->load->model('Crud');
 
          //===l'id d'utilisateur===
-         $id = $this->session->id_admin;
+         $id = $this->session->id;
  
          if(count($_POST)<=0)
          {
              $d['user'] = $this->Crud->get_data('user',['id'=>$id]);
  
              //===Passage a la vue===
-             $this->load->view('layout/admin/topbar');
-             $this->load->view('layout/admin/sidebar');
-             $this->load->view('admin/profile',$d);
-             $this->load->view('layout/admin/js');
-             $this->load->view('layout/admin/footer');
+             $this->load->view('layout/sidebar');
+             $this->load->view('layout/header');
+             $this->load->view('pages/profile',$d);
+             $this->load->view('layout/js');
+             $this->load->view('layout/footer');
          }
          else
          {
             $this->Crud->update_data('user',['id'=>$id],$_POST);
 
-            redirect('admin/index');            
+            redirect('acceuil/index');            
          }
     }
     //se deconnecter de l'application

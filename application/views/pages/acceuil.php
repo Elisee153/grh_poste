@@ -10,7 +10,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="quick-stats__item bg-blue">
                     <div class="quick-stats__info">
-                        <h2><?=count($poste)?></h2>
+                        <h2><?=count($all_post)?></h2>
                         <small>Postes</small>
                     </div>
 

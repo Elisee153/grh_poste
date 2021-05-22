@@ -43,7 +43,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="quick-stats__item bg-red">
                     <div class="quick-stats__info">
-                        <h2>214</h2>
+                        <h2><?=count($cv)?></h2>
                         <small>CV</small>
                     </div>
 

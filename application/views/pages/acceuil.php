@@ -1,4 +1,10 @@
-
+<?php
+    if($this->session->cv_added){
+?>
+    <script>swal("Bon travail!", "CV ajouté avec succè!", "success");</script>
+<?php
+    }
+?>
 
     <section class="content">
         <header class="content__title">

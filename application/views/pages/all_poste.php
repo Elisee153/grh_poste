@@ -1,8 +1,8 @@
 <?php
-    if($this->session->sermon_added)
+    if($this->session->poste_added)
     {
 ?>
-        <script>swal("Good job!", "Sermon added successfully!", "success");</script>
+        <script>swal("Bon travail!", "Poste ajouté avec succè!", "success");</script>
 <?php
     }
 ?>

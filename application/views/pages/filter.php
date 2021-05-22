@@ -1,3 +1,11 @@
+<?php
+    if($this->session->no_cv){
+?>
+    <script>swal("Attention!", "Pas de CV disponible pour ce poste!", "warning");</script>
+<?php
+    }
+?>
+
 <section class="content">
     <div class="card animated fadeInLeft">
         <div class="card-body">

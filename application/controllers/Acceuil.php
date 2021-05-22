@@ -49,7 +49,7 @@ class Acceuil extends CI_Controller {
 			'name' => $this->input->post('name'),
 			'etat' => 0
 		]);
-
+		$this->session->set_flashdata(['poste_added'=>true]);
 		redirect('acceuil/all_poste');
 	}
 
@@ -105,7 +105,7 @@ class Acceuil extends CI_Controller {
 	{
 		if(count($_POST) <= 0)
 		{
-			$d['poste'] = $this->Crud->get_data_desc('poste',[]);
+			$d['poste'] = $this->Crud->get_data_desc('poste',['etat'=>0]);
 			$d['filtre_menu'] = true;
 			$this->load->view('pages/filter',$d);
 			$this->load->view('layout/footer.php');
@@ -161,7 +161,7 @@ class Acceuil extends CI_Controller {
 				$this->load->view('layout/footer.php');
 				$this->load->view('layout/js.php');
             }else{
-				$this->session->flash_data(['no_cv'=>true]);
+				$this->session->set_flashdata(['no_cv'=>true]);
 				redirect('acceuil/filter');
 			}
 		}		

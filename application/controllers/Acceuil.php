@@ -25,6 +25,8 @@ class Acceuil extends CI_Controller {
 		$d['poste'] = $this->Crud->get_data_desc('poste',[],5);
 		$d['all_post'] = $this->Crud->get_data_desc('poste',[]);
 		$d['cv'] = $this->Crud->get_data_desc('cv');
+		$d['index_menu'] = true;
+
 		$this->load->view('pages/acceuil',$d);
 		$this->load->view('layout/footer.php');
 		$this->load->view('layout/js.php');
@@ -34,6 +36,7 @@ class Acceuil extends CI_Controller {
 	{
 		$d['p_o'] = $this->Crud->get_data_desc('poste',['etat'=>1]);
 		$d['p_v'] = $this->Crud->get_data_desc('poste',['etat'=>0]);
+		$d['poste_menu'] = true;
 
 		$this->load->view('pages/all_poste',$d);
 		$this->load->view('layout/footer.php');
@@ -71,6 +74,7 @@ class Acceuil extends CI_Controller {
 		if(count($_POST) <= 0)
 		{
 			$d['poste'] = $this->Crud->get_data_desc('poste',[]);
+			$d['cv_menu'] = true;
 			$this->load->view('pages/cv',$d);
 			$this->load->view('layout/footer.php');
 			$this->load->view('layout/js.php');
@@ -102,6 +106,7 @@ class Acceuil extends CI_Controller {
 		if(count($_POST) <= 0)
 		{
 			$d['poste'] = $this->Crud->get_data_desc('poste',[]);
+			$d['filtre_menu'] = true;
 			$this->load->view('pages/filter',$d);
 			$this->load->view('layout/footer.php');
 			$this->load->view('layout/js.php');

@@ -32,9 +32,14 @@
                     </div> 
 
                     <div class="form-group form-group--float">                        
-                        <input type="text" class="form-control" id="critere" name="critere" placeholder="Criteres" required>
+                        <input type="text" class="form-control" id="competence" name="competence" placeholder="Compétences">
                         <i class="form-group__bar"></i>
-                    </div>                   
+                    </div>    
+                    
+                    <div class="form-group form-group--float">                        
+                        <input type="text" class="form-control" id="langue" name="langue" placeholder="Langues">
+                        <i class="form-group__bar"></i>
+                    </div>                
 
                     <div class="text-center">
                         <p id="error_message" class="text-red animated fadeInUp" hidden>Complete the missing informations</p>

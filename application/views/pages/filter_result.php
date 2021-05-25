@@ -7,40 +7,44 @@
             <div class="card-body">
                 <header class="content__title">
                     <div class="row">
-                        <div class="col-md-3 content__title">
-                            <h1><b>CV</b></h1>
+                        <div class="col-md-7 content__title">
+                            <h1><b><?=$poste?></b></h1>
                         </div>
                     </div>
-                </header>
+                </header>                        
                 <div class="table-responsive">
                     <table id="data-table" class="table table-bordered">
                         <thead class="thead-default">
                             <tr class="text-center">
                                 <th>No</th>
-                                <th>Nom</th>
                                 <th>Email</th>
-                                <th>Critere1</th>
-                                <th>Critere2</th>
-                                <th>Action</th>
+                                <th>Nom complet</th>
+                                <th>Province,Ville</th>
+                                <th>Selectionner</th>
                             </tr>
                         </thead>                    
                         <tbody>
                         <form action="<?=site_url('acceuil/send_mail')?>" class="form-group" method="post">
                             <?php
-                                $num = 0;
+                                $num = 0;                                
                                 foreach($cv as $c)
-                                { 
-                                    $num++;
+                                {                                     
                                     if (count($c)>0) {
+                                        $num = $num + 1;
                             ?>                                    
                                     <tr class="text-center text-justify">
-                                        <td><?=$num?></td>
+                                    <td><?=$num?></td> 
+                                        
                             <?php
                                     for ($i=0;$i<count($c);$i++) {
-                                        ?>                                    
+                                        if($i==1||$i==2||$i==3)
+                                        {                                        
+                            ?>                                                                               
                                         <td><?=$c['k'.$i]?></td>                                  
                             <?php
-                                    } ?>
+                                        }
+                                    } 
+                            ?>
                                         <td>                                        
                                             <div class="checkbox">
                                                 <input type="checkbox" id="<?=$num?>" value="<?=$c['k0'].'-'.$c['k1']?>" name="<?=$c['k1']?>">
@@ -59,7 +63,7 @@
                         <button class="btn btn-success text-center">Envoyer</button>
                     </div>  
                     </form>                    
-                </div>
+                </div>              
             </div>
         </div>
 </section>

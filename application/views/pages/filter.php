@@ -4,6 +4,12 @@
     <script>swal("Attention!", "Pas de CV disponible pour ce poste!", "warning");</script>
 <?php
     }
+    if($this->session->email_sent)
+    {
+?>
+    <script>swal("Bravo!", "Messages envoyés!", "success");</script>
+<?php
+    }
 ?> 
 
 <section class="content">

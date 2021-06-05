@@ -47,7 +47,7 @@
                             ?>
                                         <td>                                        
                                             <div class="checkbox">
-                                                <input type="checkbox" id="<?=$num?>" value="<?=$c['k0'].'-'.$c['k1']?>" name="<?=$c['k1']?>">
+                                                <input type="checkbox" id="<?=$num?>" value="<?=$c['k1'].'-'.$c['k2']?>" name="<?=$c['k3']?>">
                                                 <label class="checkbox__label" for="<?=$num?>"></label>
                                             </div>
                                         </td>
